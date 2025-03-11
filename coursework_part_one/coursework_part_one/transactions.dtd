@@ -1,6 +1,0 @@
-<!DOCTYPE name SYSTEM "output.xml">
-<!ELEMENT Transactions(GiftShop+)>
-<!ELEMENT GiftShop(#PCDATA,TransactionDate)>
-<!ELEMENT TransactionDate(#PCDATA, Transaction*)>
-<!ELEMENT Transaction(#PCDATA, _Transaction and customer details*)>
-<!ELEMENT _Transaction and customer details(#PCDATA)>
