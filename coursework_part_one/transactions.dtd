@@ -1,0 +1,6 @@
+<!DOCTYPE name SYSTEM "output.xml">
+<!ELEMENT Transactions()>
+<!ELEMENT GiftShop()>
+<!ELEMENT TransactionDate()>
+<!ELEMENT Transaction()>
+<!ELEMENT _Transaction and customer details()>
