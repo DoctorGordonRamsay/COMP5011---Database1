@@ -1,9 +1,16 @@
 <!DOCTYPE name SYSTEM "output.xml">
 <!ELEMENT transactions(giftShop+)>
-<!ELEMENT giftShop(#PCDATA | transactionDate)>
-<!ELEMENT transactionDate(#PCDATA | transaction*)>
-<!ELEMENT transaction(#PCDATA | _transaction and customer details*)>
-<!ELEMENT _transaction and customer details(#PCDATA)>
+<!ELEMENT giftShop(transaction_date+)>
+<!ELEMENT transaction_date(transaction*)>
+<!ELEMENT transaction(purchaseDetails, customerDetails, transactionID)>
+<!ELEMENT purchaseDetails(value, prefix, lastName, givenName, addressID, customerID)>
+<!ELEMENT value(#PCData)>
+<!ELEMENT prefix(#PCData)>
+<!ELEMENT lastName(#PCData)>
+<!ELEMENT givenName(#PCData)>
+<!ELEMENT addressID(#PCData)>
+<!ELEMENT customerID(#PCData)>
+<!ELEMENT transactionID(#PCData)>
 
-<!ATTLIST>
-<!ATTLIST>
+<!ATTLIST >
+<!ATTLIST >
