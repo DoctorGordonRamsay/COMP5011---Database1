@@ -1,0 +1,18 @@
+<!DOCTYPE name SYSTEM "output.xml">
+<!ELEMENT transactions(giftShop+)>
+<!ELEMENT giftShop(transaction_date+)>
+<!ELEMENT transaction_date(transaction*)>
+<!ELEMENT transaction(purchaseDetails, customerDetails, transactionID)>
+<!ELEMENT purchaseDetails(value, prefix, lastName, givenName, addressID, customerID)>
+<!ELEMENT value(#PCData)>
+<!ELEMENT prefix(#PCData)>
+<!ELEMENT lastName(#PCData)>
+<!ELEMENT givenName(#PCData)>
+<!ELEMENT addressID(#PCData)>
+<!ELEMENT customerID(#PCData)>
+<!ELEMENT transactionID(#PCData)>
+
+<!ATTLIST addressID type ID #Required>
+<!ATTLIST customerID type ID #Required>
+<!ATTLIST transactionID type ID #Required>
+<!ATTLIST value currency CDATA #Fixed "gbp">   
