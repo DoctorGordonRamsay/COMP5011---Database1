@@ -3,34 +3,30 @@
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
     
 	<xsl:template match="transactions"> <!-- match transactions to root-->
-	
 		<transactions>
-		
 			<xsl:for-each select="transaction"> 
+			
 				<xsl:sort select="giftShop"/> <!-- sorts the list by gift shop-->
 				<xsl:sort select="transaction_date"/> <!-- sorts the list by transactions date-->
-				
-				<transaction>
-					<transactionID><xsl:value-of select="transactionID"/></transactionID>
-					<giftShop><xsl:value-of select="giftShop"/></giftShop>
+				<giftShop><xsl:value-of select="giftShop"/></giftShop>	
 					
-						<customers> <!-- Customer information-->
-					
-							<customerID><xsl:value-of select="customerID"/></customerID>
-							<prefix><xsl:value-of select="prefix"/></prefix>
-							<givenName><xsl:value-of select="givenName"/></givenName>
-							<lastName><xsl:value-of select="lastName"/></lastName>
-							<addressID><xsl:value-of select="addressID"/></addressID>
-							
-						</customers>
-						
 					<transaction_date><xsl:value-of select="transaction_date"/></transaction_date>
-					<value currency="gbp"><xsl:value-of select="value"/></value>
+						<transaction> <!-- Transaction information-->
+							<transactionID><xsl:value-of select="transactionID"/></transactionID>
+							<value currency="gbp"><xsl:value-of select="value"/></value>
+						
+							<xsl:variable name="custID" select="customerID"/>
+							<xsl:variable name="customer" select="document('./retail_customers.xml')/customers/customer[customerID = $custID]"/>
+
+							<customerID><xsl:value-of select="$custID"/></customerID><!-- Customer information-->
+							<prefix><xsl:value-of select="$customer/prefix"/></prefix>
+							<givenName><xsl:value-of select="$customer/givenName"/></givenName>
+							<lastName><xsl:value-of select="$customer/lastName"/></lastName>
+							<addressID><xsl:value-of select="$customer/addressID"/></addressID>
+						</transaction>
 					
-				</transaction>
 				
 			</xsl:for-each>
-			
 		</transactions>
 		
     </xsl:template>

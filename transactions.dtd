@@ -12,8 +12,5 @@
 <!ELEMENT customerID(#PCData)>
 <!ELEMENT transactionID(#PCData)>
 
-<!ATTLIST addressID type ID #Required>
-<!ATTLIST customerID type ID #Required>
-<!ATTLIST transactionID type ID #Required>
 <!ATTLIST value currency CDATA #Required "gbp">   
 ]>
